@@ -3,7 +3,6 @@
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
-
 const renderCountry = function(data){
 
     const countryImg = document.querySelector('.country__img');
@@ -21,7 +20,6 @@ const renderCountry = function(data){
     timezones.textContent = `🕒 ${data[0].timezones[0]}`;
 }
 
-
 const getCountryData = function(country) {
     fetch(`https://restcountries.com/v3.1/name/${country}`)
         .then(function(response) {
@@ -30,7 +28,6 @@ const getCountryData = function(country) {
             renderCountry(data)
             const [lat, lon] = data[0].latlng;
             renderMap(lat, lon, data);
-            console.log(data[0].timezones[0])
         })
 }
 
@@ -90,8 +87,6 @@ const input = document.querySelector('.my-input');
 
 input.addEventListener('change', (event) => {
     const value = event.target.value;
-    console.log(value); 
-
     event.target.value = ''; 
     event.target.focus(); 
     getCountryData(value);
